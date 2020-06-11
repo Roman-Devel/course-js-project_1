@@ -1,47 +1,40 @@
-if (num < 49) {
-	console.log("Неверно!");
-} else if (num > 100) {
-	console.log("Много!");
-} else {
-	console.log("Верно!");
+// function showFirstMessage(text) {
+// 	alert(text);
+// 	let num = 20;
+// }
+
+// showFirstMessage("Hello World!");
+
+// function calc(a,b) {
+// 	return (a + b);
+// }
+
+// let calc = function(a,b) {
+// 	return (a + b);
+// }
+
+let calc = (a,b) => a+b;
+
+console.log(calc(3,4));
+
+console.log(calc(8,4));
+
+function retVar() {
+	let num = 50; // объявляем локальную переменную
+	return num; // через функцию return выводим переменную в глобальный тип
 }
 
-(num == 50) ? console.log("Верно!") : console.log("Неверно!");
+let anotherNum = retVar();
+console.log(anotherNum);
 
-switch (num) {
-	case num < 49:
-		console.log("Неверно!");
-		break;
-	case num > 100:
-		console.log("Много!");
-		break;
-	case num > 80:
-		console.log("Все еще много!");
-		break;
-	case 50:
-		console.log("Верно!");
-		break;
-	default:
-		console.log("Что-то пошло не так!");
-		break;
-}
+let str = "test";
+console.log(str.length);
 
-let num = 50;
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
 
-while (num < 55) {
-	console.log(num);
-	num++;
-}
+let twelve = "12.2px";
 
-do {
-	console.log(num);
-	num++;
-}
-while (num < 55)
-
-for (let i = 1; i < 8; i++) {
-	if (i == 6) {
-		continue;
-	}
-	console.log(i);
-}
+// console.log(Math.round(twelve));
+console.log(parseInt(twelve));
+console.log(parseFloat(twelve));
