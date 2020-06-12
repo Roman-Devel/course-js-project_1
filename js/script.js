@@ -1,40 +1,24 @@
-// function showFirstMessage(text) {
-// 	alert(text);
-// 	let num = 20;
-// }
-
-// showFirstMessage("Hello World!");
-
-// function calc(a,b) {
-// 	return (a + b);
-// }
-
-// let calc = function(a,b) {
-// 	return (a + b);
-// }
-
-let calc = (a,b) => a+b;
-
-console.log(calc(3,4));
-
-console.log(calc(8,4));
-
-function retVar() {
-	let num = 50; // объявляем локальную переменную
-	return num; // через функцию return выводим переменную в глобальный тип
+function first() {
+	//Что-то делаем
+	setTimeout(function(){			//setTimeout --- задержка функции
+		console.log(1);
+	}, 500);
 }
 
-let anotherNum = retVar();
-console.log(anotherNum);
+function second(){
+	console.log(2);
+}
 
-let str = "test";
-console.log(str.length);
+first();
+second();
 
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+function learnJS(lang, callback){
+	console.log("Я учу " +lang);
+	callback();
+}
 
-let twelve = "12.2px";
+function done(){
+	console.log("Я прошел 3-й урок!");
+}
 
-// console.log(Math.round(twelve));
-console.log(parseInt(twelve));
-console.log(parseFloat(twelve));
+learnJS("JavaScript", done);
