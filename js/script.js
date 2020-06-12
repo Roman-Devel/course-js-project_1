@@ -1,24 +1,21 @@
-function first() {
-	//Что-то делаем
-	setTimeout(function(){			//setTimeout --- задержка функции
-		console.log(1);
-	}, 500);
+let options = { 					// --- Любой объект имеет пару - ключ = значение
+	width: 1024,
+	height: 1024, 					// --- в теле метода прописываются свойства
+	name: "test"
+};
+
+console.log(options.name); 			// --- выводим из метода, свойство name
+options.bool = false; 				// --- записали в объект options новую пару - ключ = значение
+options.colors = { 					// --- записываем в объект options новый объект со своими свойствами
+	border: "black",
+	bg: "red"
+};
+
+delete options.bool;				// --- удаляем свойство из объекта
+
+console.log(options);
+
+for (let key in options) {			// --- цикл перебора свойств нужного объекта, key - свойство, options - нужный нам объект
+	console.log('Свойство ' + key + ' имеет значение ' + options[key]);
 }
-
-function second(){
-	console.log(2);
-}
-
-first();
-second();
-
-function learnJS(lang, callback){
-	console.log("Я учу " +lang);
-	callback();
-}
-
-function done(){
-	console.log("Я прошел 3-й урок!");
-}
-
-learnJS("JavaScript", done);
+console.log(Object.keys(options).length); // --- выводим в консоль объект с его свойствами и узнаем количество этих свойств
