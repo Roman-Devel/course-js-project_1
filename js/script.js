@@ -1,74 +1,35 @@
-// let options = { 					// --- Любой объект имеет пару - ключ = значение
-// 	width: 1024,
-// 	height: 1024, 					// --- в теле метода прописываются свойства
-// 	name: "test"
-// };
+// - to string
+// 1)
+console.log(typeof(String(4)));
+// 2)
+console.log(typeof('ww' + 8)); // конкатенация
 
-// console.log(options.name); 			// --- выводим из метода, свойство name
-// options.bool = false; 				// --- записали в объект options новую пару - ключ = значение
-// options.colors = { 					// --- записываем в объект options новый объект со своими свойствами
-// 	border: "black",
-// 	bg: "red"
-// };
+// - to Number
+// 1)
+console.log(typeof(Number('4')));
+// 2)
+console.log(typeof(5 + +'5')); // унарный плюс перед любым типом данных, превращает его в числовой
+// 3)
+console.log(typeof(parseInt('15px', 10))); // преобразование в числовой тип
 
-// delete options.bool;				// --- удаляем свойство из объекта
+let ans = +prompt("Hello!", ""); // унарный плюс
 
-// console.log(options);
+0, '', null, undefined, NaN // всегда false
 
-// for (let key in options) {			// --- цикл перебора свойств нужного объекта, key - свойство, options - нужный нам объект
-// 	console.log('Свойство ' + key + ' имеет значение ' + options[key]);
-// }
-// console.log(Object.keys(options).length); // --- выводим в консоль объект с его свойствами и узнаем количество этих свойств
+// - to Boolean
+// 1)
+let switcher = null;
 
-// // ----- Массивы -----
+if (switcher) {
+	console.log("Working..");
+}
 
-// // let arr = ["first", 2, 3, "four", 5]; 			// --- создание массива
+switcher = 1;
 
-// // // for (let i = 0; i < arr.length; i++) {
-// // // 	console.log(arr[i]);
-// // // }
-
-// // arr.forEach(function(item, i, mass) { // --- 1 аргумент (элемент массива), 2 аргумент (номер элемента), 3 аргумент (сам массив)
-// // 	console.log(i + ': ' + item + " (массив: " + mass + ')');
-// // });
-
-// // console.log(arr);
-
-// // let mass = [1, 3, 4, 6, 7];
-
-// // for (let key of mass) {
-// // 	console.log(key);
-// // }
-
-// // let ans = prompt("", ""),
-// // 	arr = [];
-
-// // arr = ans.split(',');
-// // console.log(arr);
-
-// // let arr = ['aawe', 'zzz', 'pp', 'rqa'],
-// // 	i = arr.join(', ');
-// // console.log(i);
-
-// let arr = [1, 15, 4],
-// 	i = arr.sort(compareNum);
-
-// function compareNum(a,b) {
-// 	return a-b;
-// }
-
-// console.log(arr);
-
-let soldier = {
-	health: 400,
-	armor:100
-};
-
-let john = {
-	health:100
-};
-
-john.__proto__ = soldier;
-
-console.log(john);
-console.log(john.armor);
+if (switcher) {
+	console.log("Working..");
+}
+// 2)
+console.log(typeof(Boolean('4')));
+// 3)
+console.log(typeof(!!'4')); // !! преобразовывает тип данных в логический
