@@ -1,35 +1,40 @@
-// - to string
-// 1)
-console.log(typeof(String(4)));
-// 2)
-console.log(typeof('ww' + 8)); // конкатенация
+let box = document.getElementById('box'), // через встроенный объект document, используем метод для поиска элемента по ID
+	btn = document.getElementsByTagName('button'), // получение псевдоколлекции по тегу
+	circle = document.getElementsByClassName('circle'), // получение псевдоколлекции по классу
+	heart = document.querySelectorAll('.heart'), // получение псевдоколлекции по нужному селектору
+	oneHeart = document.querySelector('.heart'), // получение первого элемента на странице по нужному селектору
+	wrapper = document.querySelector('.wrapper');
 
-// - to Number
-// 1)
-console.log(typeof(Number('4')));
-// 2)
-console.log(typeof(5 + +'5')); // унарный плюс перед любым типом данных, превращает его в числовой
-// 3)
-console.log(typeof(parseInt('15px', 10))); // преобразование в числовой тип
+box.style.backgroundColor = 'blue';
+btn[1].style.borderRadius = '100%';
 
-let ans = +prompt("Hello!", ""); // унарный плюс
+circle[0].style.backgroundColor = 'red';
+circle[1].style.backgroundColor = 'yellow';
+circle[2].style.backgroundColor = 'green';
 
-0, '', null, undefined, NaN // всегда false
+// for (let i = 0; i < heart.length; i++) {
+// 	heart[i].style.backgroundColor = 'blue';
+// }
 
-// - to Boolean
-// 1)
-let switcher = null;
+// heart.forEach(function(item, i, hearts) {
+// 	item.style.backgroundColor = 'blue';
+// });
 
-if (switcher) {
-	console.log("Working..");
-}
+let div = document.createElement('div'), // --- создание элемента
+	text = document.createTextNode('Тут был я'); // --- создание текстового узла
 
-switcher = 1;
+div.classList.add('black'); // --- добавление класса к элементу
 
-if (switcher) {
-	console.log("Working..");
-}
-// 2)
-console.log(typeof(Boolean('4')));
-// 3)
-console.log(typeof(!!'4')); // !! преобразовывает тип данных в логический
+// document.body.appendChild(div); // --- вставка элемента в самый конец родительского тега, тэг body встроенный
+// wrapper.appendChild(div); // --- вставка элемента в самый конец родительского тега
+
+// div.innerHTML = '<h1>Hello World!</h1>'; // --- вставка html конструкций внутрь элементов
+div.textContent = 'Hello World!'; // --- вставка текста внутрь элемента
+
+document.body.insertBefore(div, circle[0]); // --- вставка элемента перед чем-то (что вставляем, перед чем)
+document.body.removeChild(circle[1]); // --- удаление элемента со страницы
+wrapper.removeChild(heart[1]);
+
+document.body.replaceChild(btn[1], circle[1]); // --- замена одного элемента другим (какой элемент, на какой заменяем) - 2 элемент удалится
+
+console.log(div);
