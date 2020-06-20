@@ -1,40 +1,30 @@
-let box = document.getElementById('box'), // через встроенный объект document, используем метод для поиска элемента по ID
-	btn = document.getElementsByTagName('button'), // получение псевдоколлекции по тегу
-	circle = document.getElementsByClassName('circle'), // получение псевдоколлекции по классу
-	heart = document.querySelectorAll('.heart'), // получение псевдоколлекции по нужному селектору
-	oneHeart = document.querySelector('.heart'), // получение первого элемента на странице по нужному селектору
-	wrapper = document.querySelector('.wrapper');
+let btn = document.querySelectorAll('button'),
+	wrap = document.querySelector('.wrapper'),
+	link = document.querySelector('a');
 
-box.style.backgroundColor = 'blue';
-btn[1].style.borderRadius = '100%';
+// btn[0].onclick = function() {							// --- событие клика на элемент
+// 	alert('Вы нажали первую кнопку');
+// };
 
-circle[0].style.backgroundColor = 'red';
-circle[1].style.backgroundColor = 'yellow';
-circle[2].style.backgroundColor = 'green';
-
-// for (let i = 0; i < heart.length; i++) {
-// 	heart[i].style.backgroundColor = 'blue';
-// }
-
-// heart.forEach(function(item, i, hearts) {
-// 	item.style.backgroundColor = 'blue';
+// btn[0].addEventListener('click', function(event) { 			// --- событие клика через callBack функцию
+// 	console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
 // });
 
-let div = document.createElement('div'), // --- создание элемента
-	text = document.createTextNode('Тут был я'); // --- создание текстового узла
+// wrap.addEventListener('click', function(event) {
+// 	console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
+// });
 
-div.classList.add('black'); // --- добавление класса к элементу
+link.addEventListener('click', function(event) {
+	event.preventDefault();
+	console.log('Произошло событие: ' + event.type + ' на элементе ' + event.target);
+});
 
-// document.body.appendChild(div); // --- вставка элемента в самый конец родительского тега, тэг body встроенный
-// wrapper.appendChild(div); // --- вставка элемента в самый конец родительского тега
+btn.forEach(function(item) {
+	item.addEventListener('mouseleave', function() { 		// --- когда мышь выходит за пределы элемента
+		console.log('Вышли!');
+	});
+});
 
-// div.innerHTML = '<h1>Hello World!</h1>'; // --- вставка html конструкций внутрь элементов
-div.textContent = 'Hello World!'; // --- вставка текста внутрь элемента
-
-document.body.insertBefore(div, circle[0]); // --- вставка элемента перед чем-то (что вставляем, перед чем)
-document.body.removeChild(circle[1]); // --- удаление элемента со страницы
-wrapper.removeChild(heart[1]);
-
-document.body.replaceChild(btn[1], circle[1]); // --- замена одного элемента другим (какой элемент, на какой заменяем) - 2 элемент удалится
-
-console.log(div);
+// btn[0].addEventListener('mouseenter', function() {		// --- событие наведения мышки на элемент
+// 	alert('Вы навели на первую кнопку');
+// });
