@@ -1,38 +1,46 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-	// new RegExp('pattern', 'flags'); 									// --- первый способ создания Регулярного Выражения (паттерн - шаблон и флаги)
-	// /pattern/														// --- второй способ создания Регулярного Выражения
+// let timerId = setTimeout(sayHello, 3000);			// --- функция срабатывает 1 раз с задержкой (функция, задержка в миллисек)
+// clearTimeout(timerId);								// --- очистка таймера
 
-	// let ans = prompt('Введите ваше имя', '');
+// let timerId = setInterval(sayHello, 3000);			// --- интервальный повтор функции (функция, задержка в миллисек)
+// clearTimeout(timerId);								// --- очистка таймера
 
-	// let reg = /n/gi;													// --- паттерн n, и 2 флага (глобальность и регистр)
-	// console.log(reg.test(ans));											// --- тестирует строку на вхождения и выводит Boolean
+// function sayHello() {
+// 	console.log('Hello World!');
+// }
 
-	// console.log(ans.search(reg));
-	// --- метод search() ищет только первое вхождение по паттерну, если находит, тогда выводит позицию, если нет, возвращает -1
-	// // console.log(ans.match(reg));										// --- получаем совпадение в виде массива
+// let timerId = setTimeout(function log() {			// --- рекурсивный вызов setTimeout - функция вызывает сама себя и работает как setInterval
+// 	console.log('Hello!');								// нужен в тех случаях, когда внутренняя функция отрабатывает дольше, чем заданная задержка
+// 	setTimeout(log, 2000);
+// });
 
-	// флаги:
-	// i --- поиск чего-то вне зависимости от регистра
-	// g --- глобальность (ищет не только первое вхождение, но и все остальные)
-	// m --- многострочность
+let btn = document.querySelector('.btn'),
+	elem = document.querySelector('.box');
 
-	// классы:
-	// \d --- поиск цифр		\D --- ищем не цифры
-	// \w --- поиск букв		\W --- ищем не буквы
-	// \s --- поиск пробелов	\S --- ищем не пробелы
+function myAnimation() {
+	let pos = 0;
+	let id = setInterval(frame, 10);
 
-	// let pass = prompt('Введите пароль', '');
+	function frame() {
+		if (pos == 300) {
+			clearInterval(id);
+		} else {
+			pos++;
+			elem.style.top = pos + 'px';
+			elem.style.left = pos + 'px';
+		}
+	}
+}
 
-	// console.log(pass.replace(/./g, "*"));								// --- заменяем все символы глобально на знак *
-	// alert('12-34-56'.replace(/-/g, ":"));								// --- заменяем все минусы глобально на знак :
+btn.addEventListener('click', myAnimation);
 
-	// let ans = prompt('Введите число', '');
-	// let reg = /\d/g;														// --- глобально ищем все цифры в строке
-	// console.log(ans.match(reg));	
+let btnBlock = document.querySelector('.btn-block');
 
-	let str = 'My name is/ R2D2';
-	console.log(str.match(/\w\d\w\d/i));									// --- ищем букву, цифру, букву, цифру без регистра
-	console.log(str.match(/\//i));											// --- ищем спец. символ типа слеша(/) или * через экранирование (\/), (\*)
+btnBlock.addEventListener('click', function(event) {
+	if (event.target && event.target.matches('button.first')) {
+		console.log("Hello!");
+	}
+});
 
 });
