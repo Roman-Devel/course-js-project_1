@@ -1,6 +1,96 @@
-let age = document.getElementById('age');
+let name = 'Ivan',
+	age = 30,
+	mail = 'ex@mail.ru';
 
-function showUser(surname, name) {
-	alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
+document.write(`Пользователю ${name} ${age} лет. Его почтовый адрес: ${mail}`);
+
+// ----------------------------------- \\
+
+function makeArray() {
+	var items = [];
+
+	for (let i = 0; i < 10; i++) {
+		var item = function() {
+			console.log(i);
+		};
+		items.push(item);
+	}
+	return items;
 }
-showUser.apply(age, ["Горький","Максим"]);
+
+var arr = makeArray();
+
+arr[1]();
+arr[3]();
+arr[7]();
+
+// ----------------------------------- \\
+
+let fun = () => {
+	console.log(this);
+};
+// fun();
+
+let obj = {
+	number: 5,
+	sayNumber: function() {
+		let say = () => {
+			console.log(this);
+		};
+		say();
+	}
+};
+obj.sayNumber();
+
+let btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+	let show = () => {
+		console.log(this);
+	};
+	show();
+});
+
+// ----------------------------------- \\
+
+function calcOrDouble(number, basis = 2) {					// --- ES6 новая короткая запись условия ниже
+	// basis = basis || 2;									// --- ES5 короткое условие (если передан basis, то все ок, если нет, то он заменяется на 2)
+	console.log(number * basis);
+}
+calcOrDouble(3, 5);
+calcOrDouble(6);
+
+// ----------------------------------- \\
+
+class Rectangle {											// --- названия всех классов всегда пишутся с Большой Буквы
+	constructor(height, width = 20) {
+		this.height = height;
+		this.width = width;
+	}
+	calcArea() {
+		return this.height * this.width;
+	}
+}
+
+const square = new Rectangle(10);
+
+console.log(square.calcArea());
+
+// ----------------------------------- \\
+
+let video = ['youtube', 'vimeo', 'rutube'],
+	blogs = ['wordpress', 'livejournal', 'blogger'],
+	internet = [...video, ...blogs, 'vk', 'facebook'];		// --- spread оператор (...), разворачивает массив данных
+
+console.log(internet);
+
+function log(a, b, c) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	console.log(a + b + c);
+}
+
+let numbers = [2, 5, 7];
+
+log(...numbers);
