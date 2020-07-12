@@ -1,20 +1,45 @@
-$(document).ready(function() {
+// 1
+// let number = 1;
 
-	$('.list-item:first').hover(function() {					// получаем первый элемент с классом и применяем наведение
-		$(this).toggleClass('active');
-	});
+// (function() {
+// 	let number = 2;
+// 	console.log(number);
 
-	$('.list-item:eq(2)').on('click', function() {				// получаем второй элемент и эмитируем addEventListener с событием click
-		$('.image:even').fadeToggle('slow');
-	});
+// 	return console.log(number + 3);
+// }())
 
-	$('.list-item:eq(4)').on('click', function() {
-		$('.image:odd').animate(
-			{
-				opacity: 'toggle',
-				height: 'toggle'
-			}, 3000
-		);
-	});
+// console.log(number);
 
-});
+// 2
+// let user = (function() {
+// 	let privat = function() {
+// 		console.log('I am privat');
+// 	}
+
+// 	return {
+// 		sayHello : function() {
+// 			console.log('Hello!');
+// 		}
+// 	}
+// }())
+
+// console.log(user);
+// console.log(user.sayHello());
+
+// 3
+let user = (function() {
+	let privat = function() {
+		console.log('I am privat');
+	}
+
+	let sayHello = function() {
+		console.log('Hello!');
+	}
+
+	return {
+		sayHello : sayHello
+	}
+}())
+
+console.log(user);
+console.log(user.sayHello());
