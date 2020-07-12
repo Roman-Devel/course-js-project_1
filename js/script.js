@@ -1,21 +1,20 @@
-let json = '{"id":2}';
+$(document).ready(function() {
 
-// Перехват ошибок try...catch
-try {													// сначала выполняется блок try, если нет ошибок, тогда блок catch игнорируется
-	let user = JSON.parse(json);
-	console.log(user);
+	$('.list-item:first').hover(function() {					// получаем первый элемент с классом и применяем наведение
+		$(this).toggleClass('active');
+	});
 
-	if (!user.name) {
-		throw new Error("В этих данных нет имени!");	// конструкция создания собственной ошибки
-	}
-} catch(error) {
-	console.log(error.name);							// имя ошибки
-	console.log(error.message);							// сообщение ошибки
-	console.log(error.stack);							// набор вызовов, которые привели к этой ошибке
+	$('.list-item:eq(2)').on('click', function() {				// получаем второй элемент и эмитируем addEventListener с событием click
+		$('.image:even').fadeToggle('slow');
+	});
 
-	console.log(`Мы получили ошибку: ${error.name}`);
-} finally {												// этот блок выполняется всегда (но он не обязателен!)
-	console.log('Я выполняюсь всегда!');
-}
+	$('.list-item:eq(4)').on('click', function() {
+		$('.image:odd').animate(
+			{
+				opacity: 'toggle',
+				height: 'toggle'
+			}, 3000
+		);
+	});
 
-console.log('А я буду работать дальше');
+});
