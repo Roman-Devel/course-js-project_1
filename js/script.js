@@ -1,7 +1,21 @@
-localStorage.setItem('number', 1);						// создание хранилища данных (ключ, значение)
+let json = '{"id":2}';
 
-console.log(localStorage.getItem('number'));			// получить значение ключа
+// Перехват ошибок try...catch
+try {													// сначала выполняется блок try, если нет ошибок, тогда блок catch игнорируется
+	let user = JSON.parse(json);
+	console.log(user);
 
-localStorage.removeItem('number');						// удаление ключа
+	if (!user.name) {
+		throw new Error("В этих данных нет имени!");	// конструкция создания собственной ошибки
+	}
+} catch(error) {
+	console.log(error.name);							// имя ошибки
+	console.log(error.message);							// сообщение ошибки
+	console.log(error.stack);							// набор вызовов, которые привели к этой ошибке
 
-localStorage.clear();									// полное очищение хранилища
+	console.log(`Мы получили ошибку: ${error.name}`);
+} finally {												// этот блок выполняется всегда (но он не обязателен!)
+	console.log('Я выполняюсь всегда!');
+}
+
+console.log('А я буду работать дальше');
